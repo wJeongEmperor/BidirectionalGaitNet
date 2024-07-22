@@ -28,6 +28,25 @@ sudo apt-get install build-essential cmake pkg-config git
 sudo apt-get install libeigen3-dev libassimp-dev libccd-dev libfcl-dev libboost-regex-dev libboost-system-dev
 sudo apt-get install libopenscenegraph-dev libnlopt-cxx-dev coinor-libipopt-dev libbullet-dev libode-dev liboctomap-dev  libxi-dev libxmu-dev freeglut3-dev libopenscenegraph-dev
 ```
+While installing the required dependencies, you may encounter the following error.
+```bash
+Errors were encountered while processing:
+ libpaper1:amd64
+ libgs9:amd64
+ rsyslog
+ libspectre1:amd64
+ ufw
+ libpaper-utils
+ ghostscript
+ cups-daemon
+ cups-core-drivers
+ cups
+ ghostscript-x
+```
+It can be solved by doing this:
+```bash
+...
+```
 
 2. Install other libraries automatically.
 
