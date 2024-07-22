@@ -23,10 +23,17 @@ set(CMAKE_MODULE_PATH "${CMAKE_HOME_DIRECTORY}/cmake")
 set(PYTHON_LIBRARY "/home/wonjeong/anaconda3/envs/GaitNet/lib/libpython3.6m.so")
 set(PYTHON_INCLUDE_DIR "/home/wonjeong/anaconda3/envs/GaitNet/include/python3.6m")
 list(APPEND CMAKE_PREFIX_PATH "/home/wonjeong/anaconda3/envs/GaitNet")
+# list(APPEND CMAKE_PREFIX_PATH "/home/wonjeong/anaconda3/envs/GaitNet/lib/python3.6/site-packages/pybind11/share/cmake/pybind11")
+# set(pybind11_DIR "/home/wonjeong/anaconda3/envs/GaitNet/lib/python3.6/site-packages/pybind11/share/cmake/pybind11")
+find_package(pybind11 REQUIRED)
+include_directories(${pybind11_INCLUDE_DIRS})
 
+find_package(DART REQUIRED COMPONENTS gui CONFIG)
 # if(SERVER_BUILD)
-find_package(PythonLibs 3.6 EXACT REQUIRED)
-find_package(PythonInterp 3.6 EXACT REQUIRED)
+
+# find_package(PythonLibs 3.6 EXACT REQUIRED)
+# find_package(PythonInterp 3.6 EXACT REQUIRED)
+
 # endif()
 
 
