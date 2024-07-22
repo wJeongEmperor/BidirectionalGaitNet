@@ -20,6 +20,10 @@ add_compile_options(-DHAVE_CSTDDEF)
 add_definitions(-DMASS_ROOT_DIR="..")
 set(CMAKE_MODULE_PATH "${CMAKE_HOME_DIRECTORY}/cmake")
 
+set(PYTHON_LIBRARY "/home/wonjeong/anaconda3/envs/GaitNet/lib/libpython3.6m.so")
+set(PYTHON_INCLUDE_DIR "/home/wonjeong/anaconda3/envs/GaitNet/include/python3.6m")
+list(APPEND CMAKE_PREFIX_PATH "/home/wonjeong/anaconda3/envs/GaitNet")
+
 # if(SERVER_BUILD)
 find_package(PythonLibs 3.6 EXACT REQUIRED)
 find_package(PythonInterp 3.6 EXACT REQUIRED)
