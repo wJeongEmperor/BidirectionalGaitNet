@@ -156,6 +156,38 @@ GLFWApp::GLFWApp(int argc, char **argv, bool rendermode)
 
     mns = py::module::import("__main__").attr("__dict__");
     py::module::import("sys").attr("path").attr("insert")(1, "../python");
+    py::module::import("sys").attr("path").attr("insert")(1, "/home/wonjeong/anaconda3/envs/testGaitNet/lib/python3.6/site-packages/");
+
+    /* For debug */
+    py::object os = py::module::import("os");
+    py::object cwd = os.attr("getcwd")();
+    std::string current_working_directory = cwd.cast<std::string>();
+    // Get the absolute path of "../python"
+    py::object os_path = os.attr("path");
+    py::object abs_path = os_path.attr("abspath")("../python");
+    std::string absolute_python_path = abs_path.cast<std::string>();
+
+    // Print the paths using py::print
+    py::print("Current working directory:", current_working_directory);
+    py::print("Absolute path of '../python':", absolute_python_path);
+
+    py::module sys = py::module::import("sys");
+    py::print("sys.path:", sys.attr("path"));
+
+    try {
+        py::module::import("ray_model");
+        py::print("ray_model module found.");
+    } catch (const py::error_already_set& e) {
+        py::print("Error importing ray_model:", e.what());
+    }
+
+    try {
+        py::module::import("forward_gaitnet");
+        py::print("forward_gaitnet module found.");
+    } catch (const py::error_already_set& e) {
+        py::print("Error importing forward_gaitnet:", e.what());
+    }
+
 
     if (argc > 1) // Network 가 주어졌을 때
     {
