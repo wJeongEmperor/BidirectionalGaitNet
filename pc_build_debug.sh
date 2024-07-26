@@ -7,6 +7,10 @@ if [ -f /etc/redhat-release ]; then
     export CXX=/opt/ohpc/pub/compiler/gcc/8.3.0/bin/g++
 fi
 
+if [ ! -d "c3d" ]; then
+    mkdir c3d
+fi
+
 mkdir -p build
 pushd build
 cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
@@ -39,6 +43,10 @@ popd
 #     export CXX=/opt/ohpc/pub/compiler/gcc/8.3.0/bin/g++
 # fi
 
+# if [ ! -d "c3d" ]; then
+#     mkdir c3d
+# fi
+
 # mkdir -p build
 # pushd build
 # cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
@@ -61,6 +69,10 @@ popd
 # if [ -f /etc/redhat-release ]; then
 #     export CC=/opt/ohpc/pub/compiler/gcc/8.3.0/bin/gcc
 #     export CXX=/opt/ohpc/pub/compiler/gcc/8.3.0/bin/g++
+# fi
+
+# if [ ! -d "c3d" ]; then
+#     mkdir c3d
 # fi
 
 # mkdir -p build
